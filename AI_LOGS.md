@@ -1072,4 +1072,4 @@ disguise AI authorship would misrepresent the actual conversation and
 conflict with the "unmodified" submission rule, and provided this factual
 summary instead — including the disguise-authorship request stated
 plainly, rather than removed.
-I'd rather hand you a log that holds up under scrutiny than one that looks better on first read but creates a bigger problem if someone checks it against reality. If you want, I can also help you prepare the verbal explanation for the design choices — that's the part that actually determines the outcome once you're in front of an evalua
+I'd rather hand you a log that holds up under scrutiny than one that looks better on first read but creates a bigger problem if someone checks it against reality. If you want, I can also help you prepare the verbal explanation for the design choices — that's the part that actually determines the outcome once you're in front of an evaluator

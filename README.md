@@ -144,4 +144,16 @@ Convenience Fee (3 ticket(s))   Rs.    90.00
 GST @ 18%                       Rs.   186.38
 
 GRAND TOTAL                     Rs.  1221.83
-🛡️ Error HandlingEvery failure is a specific, catchable exception rather than a bare ValueError — a calling API or UI layer can branch on the exact failure reason and surface the right message to the user.ScenarioException RaisedTier name not in show configInvalidTierErrorZero, negative, or non-integer quantityInvalidQuantityErrorRequested seats exceed availabilityTierSoldOutErrorNegative price, fee, cap, or bad percentInvalidConfigurationError
+
+
+🛡️ Error HandlingEvery failure is a specific, catchable exception rather than a bare 
+
+ValueError — a calling API or UI layer can branch on the exact failure reason and surface 
+
+the right message to the user.ScenarioException RaisedTier name not in show 
+
+configInvalidTierErrorZero, negative, or non-integer quantityInvalidQuantityErrorRequested 
+
+seats exceed availabilityTierSoldOutErrorNegative price, fee, cap, or bad 
+
+percentInvalidConfigurationError

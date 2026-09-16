@@ -5,7 +5,12 @@
   <img src="https://img.shields.io/badge/Engine-Decimal%20Precision-green.svg" alt="Decimal Precision">
   <img src="https://img.shields.io/badge/Database-SQLite-success.svg" alt="SQLite Persistence">
   <img src="https://img.shields.io/badge/Testing-Pytest-orange.svg" alt="Pytest">
-  <a href="https://laksh-vyaspiet23ad033-5xbwcay6sq8853jec9yk48.streamlit.app/"><img src="https://img.shields.io/badge/Streamlit-Live%20Demo-red?style=for-the-badge&logo=streamlit" alt="Live Demo"></a>
+</p>
+
+<p align="center">
+  <a href="https://laksh-vyaspiet23ad033-5xbwcay6sq8853jec9yk48.streamlit.app/">
+    <img src="https://img.shields.io/badge/🚀_CLICK_HERE_TO_TEST_LIVE_APP-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Streamlit App" height="50">
+  </a>
 </p>
 
 A production-grade, configuration-driven pricing engine for multiplex booking counters — handles seat tiers, live availability, festival and member discounts, convenience fees, and GST, calculated to the exact paisa using Python's `decimal` module, complete with a messy price list cleaner (The Twist), a SQLite database logger, and an interactive Streamlit UI dashboard.
@@ -40,24 +45,19 @@ This engine is built so one `ShowConfig` object can fully describe any show. Not
     └── 📄 test_price_cleaner.py  # Pytest suite for data cleaning & twist validation
 
 
-    🚀 Setup & Installation
-Requires Python 3.9+.
 
-Bash
-# 1. Clone the repository
+    🚀 Setup & InstallationRequires Python 3.9+.Bash# 1. Clone the repository
 git clone [https://github.com/LAKSH-VYAS-PIET23AD033/LAKSH-VYAS_PIET23AD033.git](https://github.com/LAKSH-VYAS-PIET23AD033/LAKSH-VYAS_PIET23AD033.git)
 cd LAKSH-VYAS_PIET23AD033
 
 # 2. Run the main demonstration script (Executes The Twist & Pricing Pipeline)
 python3 main.py
-
-
-🖥️ Running the Streamlit UI & Database DashboardTo launch the interactive multiplex counter dashboard locally and review live SQLite transaction logs:Bash# Install Streamlit (if not already installed)
+🖥️ Running the Streamlit UI & Database Dashboard LocallyTo launch the interactive multiplex counter dashboard locally and review live SQLite transaction logs:Bash# Install Streamlit (if not already installed)
 pip install streamlit
 
 # Launch the app locally
 streamlit run app.py
-🌐 Live Cloud Demo: You can also test the application live in your browser without local setup via the Streamlit Live Demo.🧪 Running TestsTo run the complete test suite and verify edge cases:Bash# Install Pytest
+🧪 Running TestsTo run the complete test suite and verify edge cases:Bash# Install Pytest
 pip install pytest
 
 # Run all unit tests
@@ -95,4 +95,15 @@ GST @ 18%                       Rs.   186.38
 
 GRAND TOTAL                     Rs.  1221.83
 
-🛡️ Error HandlingEvery failure is a specific, catchable exception rather than a bare ValueError — a calling API or UI layer can branch on the exact failure reason and surface the right message to the user.ScenarioException RaisedTier name not in show configInvalidTierErrorZero, negative, or non-integer quantityInvalidQuantityErrorRequested seats exceed availabilityTierSoldOutErrorNegative price, fee, cap, or bad percentInvalidConfigurationError
+
+🛡️ Error HandlingEvery failure is a specific, catchable exception rather than a bare 
+
+ValueError — a calling API or UI layer can branch on the exact failure reason and surface 
+
+the right message to the user.ScenarioException RaisedTier name not in show 
+
+configInvalidTierErrorZero, negative, or non-integer quantityInvalidQuantityErrorRequested 
+
+seats exceed availabilityTierSoldOutErrorNegative price, fee, cap, or bad 
+
+percentInvalidConfigurationError

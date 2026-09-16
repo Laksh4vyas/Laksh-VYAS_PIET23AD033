@@ -43,10 +43,20 @@ This engine is built so one `ShowConfig` object can fully describe any show. Not
 └── 🧪 tests/
     ├── 📄 test_pricing_engine.py # Pytest suite for core pricing logic
     └── 📄 test_price_cleaner.py  # Pytest suite for data cleaning & twist validation
+    
+---
 
+### Step 3: Yeh **Part 2** copy kar aur Part 1 ke **just neeche** paste karke save kar:
 
+```markdown
+---
 
-    🚀 Setup & InstallationRequires Python 3.9+.Bash# 1. Clone the repository
+## 🚀 Setup & Installation
+
+Requires Python 3.9+. 
+
+```bash
+# 1. Clone the repository
 git clone [https://github.com/LAKSH-VYAS-PIET23AD033/LAKSH-VYAS_PIET23AD033.git](https://github.com/LAKSH-VYAS-PIET23AD033/LAKSH-VYAS_PIET23AD033.git)
 cd LAKSH-VYAS_PIET23AD033
 
@@ -62,7 +72,47 @@ pip install pytest
 
 # Run all unit tests
 python3 -m pytest tests/ -v
-🔄 "The Twist" — Price List CleanerThe engine includes a robust price_cleaner.py utility designed to ingest messy, real-world raw seat-class inputs. It handles:Case-Insensitive De-duplication: Automatically catches duplicate variant rows (e.g., "silver" vs "SILVER").Format Normalization: Strips currency symbols (₹, Rs.), commas, and whitespace while preserving decimal points.Integrity Filtering: Rejects blank values, unparseable strings, and negative prices.Audit Reporting: Returns a clean dictionary of valid SeatTier objects alongside an itemized audit log of imported, de-duplicated, and rejected items.🔢 Pricing Pipeline & Order of OperationsThe engine follows a fixed, deliberate sequence. Order is a business rule, not an implementation detail — applying a percentage discount before vs. after a flat discount changes the final bill.Gross Subtotal = $\sum (\text{price\_per\_seat} \times \text{quantity})$ across all tiersFestival Discount = $\min(\text{flat\_amount}, \text{Gross Subtotal})$Post-Festival = $\text{Gross Subtotal} - \text{Festival Discount}$Member Discount = $\min(\text{Post-Festival} \times \text{percent} \div 100, \text{cap})$ [rounded]Net Ticket Amount = $\text{Post-Festival} - \text{Member Discount}$Convenience Fee = $\text{per\_ticket\_fee} \times \text{total\_ticket\_count}$Taxable Amount = $\text{Net Ticket Amount} + \text{Convenience Fee}$GST = $\text{Taxable Amount} \times \text{gst\_percent} \div 100$ [rounded]Grand Total = $\text{Taxable Amount} + \text{GST}$Rounding Rule: Rounding (ROUND_HALF_UP, quantized to 0.01) is applied only at steps 4 and 8 — the two points where a new value is genuinely derived through multiplication. Every other figure is an exact sum or difference of already paisa-exact numbers, so no rounding error can compound anywhere else in the pipeline.💻 Example UsagePythonfrom decimal import Decimal
+
+---
+
+### Step 4: Yeh **Part 3** copy kar aur baaki file ke **just neeche** paste karke save kar:
+
+```markdown
+---
+
+## 🔄 "The Twist" — Price List Cleaner
+
+The engine includes a robust `price_cleaner.py` utility designed to ingest messy, real-world raw seat-class inputs. It handles:
+
+* **Case-Insensitive De-duplication:** Automatically catches duplicate variant rows (e.g., `"silver"` vs `"SILVER"`).
+* **Format Normalization:** Strips currency symbols (`₹`, `Rs.`), commas, and whitespace while preserving decimal points.
+* **Integrity Filtering:** Rejects blank values, unparseable strings, and negative prices.
+* **Audit Reporting:** Returns a clean dictionary of valid `SeatTier` objects alongside an itemized audit log of imported, de-duplicated, and rejected items.
+
+---
+
+## 🔢 Pricing Pipeline & Order of Operations
+
+The engine follows a fixed, deliberate sequence. Order is a business rule, not an implementation detail — applying a percentage discount before vs. after a flat discount changes the final bill.
+
+1. **Gross Subtotal** = $\sum (\text{price\_per\_seat} \times \text{quantity})$ across all tiers
+2. **Festival Discount** = $\min(\text{flat\_amount}, \text{Gross Subtotal})$
+3. **Post-Festival** = $\text{Gross Subtotal} - \text{Festival Discount}$
+4. **Member Discount** = $\min(\text{Post-Festival} \times \text{percent} \div 100, \text{cap})$ [rounded]
+5. **Net Ticket Amount** = $\text{Post-Festival} - \text{Member Discount}$
+6. **Convenience Fee** = $\text{per\_ticket\_fee} \times \text{total\_ticket\_count}$
+7. **Taxable Amount** = $\text{Net Ticket Amount} + \text{Convenience Fee}$
+8. **GST** = $\text{Taxable Amount} \times \text{gst\_percent} \div 100$ [rounded]
+9. **Grand Total** = $\text{Taxable Amount} + \text{GST}$
+
+> **Rounding Rule:** Rounding (`ROUND_HALF_UP`, quantized to `0.01`) is applied **only** at steps 4 and 8 — the two points where a new value is genuinely derived through multiplication. Every other figure is an exact sum or difference of already paisa-exact numbers, so no rounding error can compound anywhere else in the pipeline.
+
+---
+
+## 💻 Example Usage
+
+```python
+from decimal import Decimal
 from models import (
     ShowConfig, SeatTier, FestivalDiscountConfig,
     MemberDiscountConfig, FeeConfig, TaxConfig, SeatRequest,
@@ -94,16 +144,4 @@ Convenience Fee (3 ticket(s))   Rs.    90.00
 GST @ 18%                       Rs.   186.38
 
 GRAND TOTAL                     Rs.  1221.83
-
-
-🛡️ Error HandlingEvery failure is a specific, catchable exception rather than a bare 
-
-ValueError — a calling API or UI layer can branch on the exact failure reason and surface 
-
-the right message to the user.ScenarioException RaisedTier name not in show 
-
-configInvalidTierErrorZero, negative, or non-integer quantityInvalidQuantityErrorRequested 
-
-seats exceed availabilityTierSoldOutErrorNegative price, fee, cap, or bad 
-
-percentInvalidConfigurationError
+🛡️ Error HandlingEvery failure is a specific, catchable exception rather than a bare ValueError — a calling API or UI layer can branch on the exact failure reason and surface the right message to the user.ScenarioException RaisedTier name not in show configInvalidTierErrorZero, negative, or non-integer quantityInvalidQuantityErrorRequested seats exceed availabilityTierSoldOutErrorNegative price, fee, cap, or bad percentInvalidConfigurationError
